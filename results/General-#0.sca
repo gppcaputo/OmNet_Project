@@ -1,0 +1,207 @@
+version 3
+run General-0-20221123-16:39:12-17200
+attr configname General
+attr datetime 20221123-16:39:12
+attr datetimef 20221123-163912
+attr experiment General
+attr inifile progetto.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Rete
+attr processid 17200
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config network Rete
+config repeat 1
+config sim-time-limit 1000s
+config debug-on-errors true
+config Rete.numServers 2
+config **.ElasticSource.jobType 1
+config **.InelasticSource.jobType 2
+config **.ElasticSource.interArrivalTime exponential(0.5s)
+config **.InelasticSource.interArrivalTime exponential(0.5s)
+config **.ElasticQueue.capacity 4
+config **.InelasticQueue.capacity 4
+config **.servers[*].serviceTimeEl uniform(0.1,0.3)
+config **.servers[*].serviceTimeIn uniform(0.1,0.4)
+
+par Rete.ElasticQueue typename "\"org.omnetpp.queueing.PassiveQueue\""
+par Rete.ElasticQueue capacity 4
+par Rete.ElasticQueue fifo true
+par Rete.ElasticQueue sendingAlgorithm "\"priority\""
+attr enum priority,random,roundRobin,minDelay
+scalar Rete.ElasticQueue queueingTime:mean nan
+attr interpolationmode none
+attr recordingmode mean
+attr title "queueing time at dequeue, mean"
+attr unit s
+scalar Rete.ElasticQueue queueingTime:max nan
+attr interpolationmode none
+attr recordingmode max
+attr title "queueing time at dequeue, max"
+attr unit s
+scalar Rete.ElasticQueue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr title "queue length, timeavg"
+scalar Rete.ElasticQueue queueLength:max 0
+attr interpolationmode sample-hold
+attr recordingmode max
+attr title "queue length, max"
+scalar Rete.ElasticQueue dropped:count 0
+attr interpolationmode none
+attr recordingmode count
+attr title "drop event, count"
+par Rete.ElasticSource typename "\"org.omnetpp.queueing.Source\""
+par Rete.ElasticSource numJobs -1
+par Rete.ElasticSource interArrivalTime exponential(0.5s)
+attr unit s
+par Rete.ElasticSource jobName "\"job\""
+par Rete.ElasticSource jobType 1
+par Rete.ElasticSource jobPriority 0
+par Rete.ElasticSource startTime 0.397937s
+attr unit s
+par Rete.ElasticSource stopTime -1s
+attr unit s
+scalar Rete.ElasticSource created:last 1994
+attr interpolationmode none
+attr recordingmode last
+attr title "the number of jobs created, last"
+par Rete.InelasticSource typename "\"org.omnetpp.queueing.Source\""
+par Rete.InelasticSource numJobs -1
+par Rete.InelasticSource interArrivalTime exponential(0.5s)
+attr unit s
+par Rete.InelasticSource jobName "\"job\""
+par Rete.InelasticSource jobType 2
+par Rete.InelasticSource jobPriority 0
+par Rete.InelasticSource startTime 0.44928s
+attr unit s
+par Rete.InelasticSource stopTime -1s
+attr unit s
+scalar Rete.InelasticSource created:last 1924
+attr interpolationmode none
+attr recordingmode last
+attr title "the number of jobs created, last"
+par Rete.sink typename "\"org.omnetpp.queueing.Sink\""
+par Rete.sink keepJobs false
+scalar Rete.sink generation:mean 0
+attr interpolationmode none
+attr recordingmode mean
+attr title "the generation of the arrived jobs, mean"
+scalar Rete.sink generation:max 0
+attr interpolationmode none
+attr recordingmode max
+attr title "the generation of the arrived jobs, max"
+scalar Rete.sink delaysVisited:mean 0
+attr interpolationmode none
+attr recordingmode mean
+attr title "the total number of delays visited by arrived jobs, mean"
+scalar Rete.sink delaysVisited:max 0
+attr interpolationmode none
+attr recordingmode max
+attr title "the total number of delays visited by arrived jobs, max"
+scalar Rete.sink queuesVisited:mean 0
+attr interpolationmode none
+attr recordingmode mean
+attr title "the total number of queues visited by arrived jobs, mean"
+scalar Rete.sink queuesVisited:max 0
+attr interpolationmode none
+attr recordingmode max
+attr title "the total number of queues visited by arrived jobs, max"
+scalar Rete.sink totalServiceTime:mean 0
+attr interpolationmode none
+attr recordingmode mean
+attr title "the total time spent  by arrived jobs, mean"
+attr unit s
+scalar Rete.sink totalServiceTime:max 0
+attr interpolationmode none
+attr recordingmode max
+attr title "the total time spent  by arrived jobs, max"
+attr unit s
+scalar Rete.sink totalDelayTime:mean 0
+attr interpolationmode none
+attr recordingmode mean
+attr title "the total time spent in delay nodes by arrived jobs, mean"
+attr unit s
+scalar Rete.sink totalDelayTime:max 0
+attr interpolationmode none
+attr recordingmode max
+attr title "the total time spent in delay nodes by arrived jobs, max"
+attr unit s
+scalar Rete.sink totalQueueingTime:mean 0
+attr interpolationmode none
+attr recordingmode mean
+attr title "the total time spent in queues by arrived jobs, mean"
+attr unit s
+scalar Rete.sink totalQueueingTime:max 0
+attr interpolationmode none
+attr recordingmode max
+attr title "the total time spent in queues by arrived jobs, max"
+attr unit s
+scalar Rete.sink lifeTime:mean 0
+attr interpolationmode none
+attr recordingmode mean
+attr title "lifetime of arrived jobs, mean"
+attr unit s
+scalar Rete.sink lifeTime:max 0
+attr interpolationmode none
+attr recordingmode max
+attr title "lifetime of arrived jobs, max"
+attr unit s
+par Rete.InelasticQueue typename "\"org.omnetpp.queueing.PassiveQueue\""
+par Rete.InelasticQueue capacity 4
+par Rete.InelasticQueue fifo true
+par Rete.InelasticQueue sendingAlgorithm "\"priority\""
+attr enum priority,random,roundRobin,minDelay
+scalar Rete.InelasticQueue queueingTime:mean nan
+attr interpolationmode none
+attr recordingmode mean
+attr title "queueing time at dequeue, mean"
+attr unit s
+scalar Rete.InelasticQueue queueingTime:max nan
+attr interpolationmode none
+attr recordingmode max
+attr title "queueing time at dequeue, max"
+attr unit s
+scalar Rete.InelasticQueue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr title "queue length, timeavg"
+scalar Rete.InelasticQueue queueLength:max 0
+attr interpolationmode sample-hold
+attr recordingmode max
+attr title "queue length, max"
+scalar Rete.InelasticQueue dropped:count 0
+attr interpolationmode none
+attr recordingmode count
+attr title "drop event, count"
+par Rete.servers[0] typename "\"org.omnetpp.queueing.Server\""
+par Rete.servers[0] fetchingAlgorithm "\"priority\""
+attr enum priority,random,roundRobin,longestQueue
+par Rete.servers[0] serviceTime 0s
+attr unit s
+scalar Rete.servers[0] busy:timeavg 0
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr title "server busy state, timeavg"
+par Rete.servers[1] typename "\"org.omnetpp.queueing.Server\""
+par Rete.servers[1] fetchingAlgorithm "\"priority\""
+attr enum priority,random,roundRobin,longestQueue
+par Rete.servers[1] serviceTime 0s
+attr unit s
+scalar Rete.servers[1] busy:timeavg 0
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr title "server busy state, timeavg"
+par Rete typename "\"Rete\""
+par Rete numServers 2
+attr prompt "Number of servers"
+par Rete moduleName "\"Nserver\""
+par Rete fetchingAlgorithm "\"priority\""
+attr enum priority,random,roundRobin,longestQueue
+

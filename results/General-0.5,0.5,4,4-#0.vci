@@ -1,0 +1,50 @@
+file 108416 1669823725                                          
+version 3
+run General-0-20221130-16:55:16-21352
+attr configname General
+attr datetime 20221130-16:55:16
+attr datetimef 20221130-165516
+attr experiment General
+attr inifile progetto.ini
+attr iterationvars "$0=0.5, $1=0.5, $2=4, $3=4"
+attr iterationvarsd 0.5/0.5/4/4
+attr iterationvarsf 0.5,0.5,4,4-
+attr measurement "$0=0.5, $1=0.5, $2=4, $3=4"
+attr network Rete
+attr processid 21352
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config network Rete
+config repeat 1
+config sim-time-limit 1000s
+config debug-on-errors true
+config Rete.numServers 2
+config **.ElasticSource.jobType 1
+config **.ElasticSource.jobName "\"Elastic\""
+config **.InelasticSource.jobType 2
+config **.InelasticSource.jobName "\"Inelastic\""
+config **.ElasticSource.interArrivalTime exponential(0.5s)
+config **.InelasticSource.interArrivalTime exponential(0.5s)
+config **.ElasticQueue.capacity (4)
+config **.InelasticQueue.capacity (4)
+
+vector 0 Rete.ElasticQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr title "queue length"
+vector 1 Rete.InelasticQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr title "queue length"
+vector 2 Rete.sink lifeTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "lifetime of arrived jobs"
+attr unit s
+0	1418 9 0 0 0 0 1 0 0 0 0
+1	1427 9 0 0 0 0 1 0 0 0 0
+2	1436 106978 7 23578 0.397937252283 999.937881111158 3918 0 0 0 0
+

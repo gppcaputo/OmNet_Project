@@ -1,0 +1,43 @@
+file 1167 1669019558                                            
+version 3
+run General-0-20221121-09:32:35-19052
+attr configname General
+attr datetime 20221121-09:32:35
+attr datetimef 20221121-093235
+attr experiment General
+attr inifile progetto.ini
+attr iterationvars $0=2
+attr iterationvarsd 2
+attr iterationvarsf 2-
+attr measurement $0=2
+attr network Rete
+attr processid 19052
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config network Rete
+config repeat 1
+config sim-time-limit 1000s
+config debug-on-errors true
+config Rete.numServers 2
+config Rete.ServiceTime "uniform(0.1s, 0.3s)"
+config **.ElasticSource.jobType 1
+config **.InelasticSource.jobType 2
+config **.ElasticSource.interArrivalTime exponential(0.5s)
+config **.InelasticSource.interArrivalTime exponential(0.5s)
+config **.ElasticQueue.capacity 4
+config **.InelasticQueue.capacity 4
+
+vector 0 Rete.ElasticQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr title "queue length"
+vector 1 Rete.InelasticQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr title "queue length"
+0	1147 9 0 0 0 0 1 0 0 0 0
+1	1156 9 0 0 0 0 1 0 0 0 0
+
